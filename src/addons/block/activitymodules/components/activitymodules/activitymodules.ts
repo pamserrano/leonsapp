@@ -46,7 +46,7 @@ export class AddonBlockActivityModulesComponent extends CoreBlockBaseComponent i
      *
      * @return Resolved when done.
      */
-    async invalidateContent(): Promise<void> {
+    protected async invalidateContent(): Promise<void> {
         await CoreCourse.invalidateSections(this.instanceId);
     }
 

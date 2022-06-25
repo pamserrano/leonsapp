@@ -18,7 +18,6 @@ import { CoreDynamicComponent } from '@components/dynamic-component/dynamic-comp
 import { Subscription } from 'rxjs';
 import { CoreCourseBlock } from '@/core/features/course/services/course';
 import { IonRefresher } from '@ionic/angular';
-import type { CoreBlockBaseComponent } from '@features/block/classes/base-block-component';
 
 /**
  * Component to render a block.
@@ -30,7 +29,7 @@ import type { CoreBlockBaseComponent } from '@features/block/classes/base-block-
 })
 export class CoreBlockComponent implements OnInit, OnDestroy, DoCheck {
 
-    @ViewChild(CoreDynamicComponent) dynamicComponent?: CoreDynamicComponent<CoreBlockBaseComponent>;
+    @ViewChild(CoreDynamicComponent) dynamicComponent?: CoreDynamicComponent;
 
     @Input() block!: CoreCourseBlock; // The block to render.
     @Input() contextLevel!: string; // The context where the block will be used.
@@ -147,7 +146,7 @@ export class CoreBlockComponent implements OnInit, OnDestroy, DoCheck {
         showErrors: boolean = false,
     ): Promise<void> {
         if (this.dynamicComponent) {
-            await this.dynamicComponent.callComponentMethod('doRefresh', refresher, done, showErrors);
+            await this.dynamicComponent.callComponentFunction('doRefresh', [refresher, done, showErrors]);
         }
     }
 
@@ -158,7 +157,7 @@ export class CoreBlockComponent implements OnInit, OnDestroy, DoCheck {
      */
     async invalidate(): Promise<void> {
         if (this.dynamicComponent) {
-            await this.dynamicComponent.callComponentMethod('invalidateContent');
+            await this.dynamicComponent.callComponentFunction('invalidateContent');
         }
     }
 

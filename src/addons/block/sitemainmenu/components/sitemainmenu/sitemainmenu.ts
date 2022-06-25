@@ -53,7 +53,7 @@ export class AddonBlockSiteMainMenuComponent extends CoreBlockBaseComponent impl
      *
      * @return Resolved when done.
      */
-    async invalidateContent(): Promise<void> {
+    protected async invalidateContent(): Promise<void> {
         const promises: Promise<void>[] = [];
 
         promises.push(CoreCourse.invalidateSections(this.siteHomeId));

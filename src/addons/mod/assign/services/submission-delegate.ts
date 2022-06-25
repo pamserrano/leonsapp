@@ -20,7 +20,6 @@ import { makeSingleton } from '@singletons';
 import { CoreWSFile } from '@services/ws';
 import { AddonModAssignSubmissionsDBRecordFormatted } from './assign-offline';
 import { CoreFormFields } from '@singletons/form';
-import type { AddonModAssignSubmissionPluginBaseComponent } from '@addons/mod/assign/classes/base-submission-plugin-component';
 
 /**
  * Interface that all submission handlers must implement.
@@ -123,9 +122,7 @@ export interface AddonModAssignSubmissionHandler extends CoreDelegateHandler {
     getComponent?(
         plugin: AddonModAssignPlugin,
         edit?: boolean,
-    ): Type<AddonModAssignSubmissionPluginBaseComponent>
-    | undefined
-    | Promise<Type<AddonModAssignSubmissionPluginBaseComponent> | undefined>;
+    ): Type<unknown> | undefined | Promise<Type<unknown> | undefined>;
 
     /**
      * Get files used by this plugin.
@@ -368,10 +365,7 @@ export class AddonModAssignSubmissionDelegateService extends CoreDelegate<AddonM
      * @param edit Whether the user is editing.
      * @return Promise resolved with the component to use, undefined if not found.
      */
-    async getComponentForPlugin(
-        plugin: AddonModAssignPlugin,
-        edit?: boolean,
-    ): Promise<Type<AddonModAssignSubmissionPluginBaseComponent> | undefined> {
+    async getComponentForPlugin(plugin: AddonModAssignPlugin, edit?: boolean): Promise<Type<unknown> | undefined> {
         return await this.executeFunctionOnEnabled(plugin.type, 'getComponent', [plugin, edit]);
     }
 

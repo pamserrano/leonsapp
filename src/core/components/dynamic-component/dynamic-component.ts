@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { InstanceMethodParams, InstanceMethodReturn } from '@/core/utils/inference';
 import {
     Component,
     Input,
@@ -65,9 +64,9 @@ import { CoreLogger } from '@singletons/logger';
     templateUrl: 'core-dynamic-component.html',
     styles: [':host { display: contents; }'],
 })
-export class CoreDynamicComponent<ComponentClass> implements OnChanges, DoCheck {
+export class CoreDynamicComponent implements OnChanges, DoCheck {
 
-    @Input() component?: Type<ComponentClass>;
+    @Input() component?: Type<unknown>;
     @Input() data?: Record<string | number, unknown>;
 
     // Get the container where to put the dynamic component.
@@ -127,21 +126,16 @@ export class CoreDynamicComponent<ComponentClass> implements OnChanges, DoCheck 
     }
 
     /**
-     * Call a certain method on the component.
+     * Call a certain function on the component.
      *
-     * @param method Name of the method to call.
-     * @param params List of params to send to the method.
-     * @return Result of the call. Undefined if the component instance is not ready.
+     * @param name Name of the function to call.
+     * @param params List of params to send to the function.
+     * @return Result of the call. Undefined if no component instance or the function doesn't exist.
      */
-    callComponentMethod<Method extends keyof ComponentClass>(
-        method: Method,
-        ...params: InstanceMethodParams<ComponentClass, Method>
-    ): InstanceMethodReturn<ComponentClass, Method> | undefined {
-        if (typeof this.instance?.[method] !== 'function') {
-            return;
+    callComponentFunction<T = unknown>(name: string, params?: unknown[]): T | undefined {
+        if (this.instance && typeof this.instance[name] == 'function') {
+            return this.instance[name].apply(this.instance, params);
         }
-
-        return this.instance[method].apply(this.instance, params);
     }
 
     /**

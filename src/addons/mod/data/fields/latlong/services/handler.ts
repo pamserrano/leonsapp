@@ -23,7 +23,6 @@ import { Injectable, Type } from '@angular/core';
 import { CoreFormFields } from '@singletons/form';
 import { makeSingleton, Translate } from '@singletons';
 import { AddonModDataFieldLatlongComponent } from '../component/latlong';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Handler for latlong data field plugin.
@@ -37,7 +36,7 @@ export class AddonModDataFieldLatlongHandlerService implements AddonModDataField
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModDataFieldPluginBaseComponent> {
+    getComponent(): Type<unknown>{
         return AddonModDataFieldLatlongComponent;
     }
 

@@ -28,7 +28,6 @@ import { CoreFormFields } from '@singletons/form';
 import { makeSingleton, Translate } from '@singletons';
 import { AddonModDataFieldPictureComponent } from '../component/picture';
 import { CoreFileEntry } from '@services/file-helper';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Handler for picture data field plugin.
@@ -42,7 +41,7 @@ export class AddonModDataFieldPictureHandlerService implements AddonModDataField
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModDataFieldPluginBaseComponent> {
+    getComponent(): Type<unknown>{
         return AddonModDataFieldPictureComponent;
     }
 

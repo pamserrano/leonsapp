@@ -24,7 +24,6 @@ import { AddonModDataEntryField,
 import { CoreFormFields } from '@singletons/form';
 import { FileEntry } from '@ionic-native/file/ngx';
 import { CoreFileEntry } from '@services/file-helper';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Interface that all fields handlers must implement.
@@ -43,7 +42,7 @@ export interface AddonModDataFieldHandler extends CoreDelegateHandler {
      * @param field The field object.
      * @return The component to use, undefined if not found.
      */
-    getComponent?(plugin: AddonModDataField): Type<AddonModDataFieldPluginBaseComponent> | undefined;
+    getComponent?(plugin: AddonModDataField): Type<unknown> | undefined;
 
     /**
      * Get field search data in the input data.
@@ -141,7 +140,7 @@ export class AddonModDataFieldsDelegateService extends CoreDelegate<AddonModData
      * @param field The field object.
      * @return Promise resolved with the component to use, undefined if not found.
      */
-    getComponentForField(field: AddonModDataField): Promise<Type<AddonModDataFieldPluginBaseComponent> | undefined> {
+    getComponentForField(field: AddonModDataField): Promise<Type<unknown> | undefined> {
         return Promise.resolve(this.executeFunctionOnEnabled(field.type, 'getComponent', [field]));
     }
 

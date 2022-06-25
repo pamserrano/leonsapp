@@ -23,7 +23,6 @@ import { Injectable, Type } from '@angular/core';
 import { CoreFormFields } from '@singletons/form';
 import { makeSingleton, Translate } from '@singletons';
 import { AddonModDataFieldMultimenuComponent } from '../component/multimenu';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Handler for multimenu data field plugin.
@@ -37,7 +36,7 @@ export class AddonModDataFieldMultimenuHandlerService implements AddonModDataFie
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModDataFieldPluginBaseComponent> {
+    getComponent(): Type<unknown>{
         return AddonModDataFieldMultimenuComponent;
     }
 

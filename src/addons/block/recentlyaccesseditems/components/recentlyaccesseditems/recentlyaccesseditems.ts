@@ -60,7 +60,7 @@ export class AddonBlockRecentlyAccessedItemsComponent extends CoreBlockBaseCompo
      *
      * @return Resolved when done.
      */
-    async invalidateContent(): Promise<void> {
+    protected async invalidateContent(): Promise<void> {
         await AddonBlockRecentlyAccessedItems.invalidateRecentItems();
     }
 

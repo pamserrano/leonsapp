@@ -26,7 +26,7 @@ import { AddonModAssignAssign, AddonModAssignPlugin, AddonModAssignSubmission } 
 @Component({
     template: '',
 })
-export class AddonModAssignFeedbackPluginBaseComponent implements IAddonModAssignFeedbackPluginComponent {
+export class AddonModAssignFeedbackPluginBaseComponent {
 
     @Input() assign!: AddonModAssignAssign; // The assignment.
     @Input() submission!: AddonModAssignSubmission; // The submission.
@@ -65,24 +65,12 @@ export class AddonModAssignFeedbackPluginBaseComponent implements IAddonModAssig
     }
 
     /**
-     * @inheritdoc
-     */
-    async invalidate(): Promise<void> {
-        return;
-    }
-
-}
-
-/**
- * Interface for component to render a feedback plugin.
- */
-export interface IAddonModAssignFeedbackPluginComponent {
-
-    /**
      * Invalidate the data.
      *
      * @return Promise resolved when done.
      */
-    invalidate(): Promise<void>;
+    async invalidate(): Promise<void> {
+        return;
+    }
 
 }

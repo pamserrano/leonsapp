@@ -18,7 +18,6 @@ import { CoreFormFields } from '@singletons/form';
 import { makeSingleton, Translate } from '@singletons';
 import { AddonModDataFieldTextHandlerService } from '../../text/services/handler';
 import { AddonModDataFieldNumberComponent } from '../component/number';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Handler for number data field plugin.
@@ -32,7 +31,7 @@ export class AddonModDataFieldNumberHandlerService extends AddonModDataFieldText
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModDataFieldPluginBaseComponent> {
+    getComponent(): Type<unknown>{
         return AddonModDataFieldNumberComponent;
     }
 

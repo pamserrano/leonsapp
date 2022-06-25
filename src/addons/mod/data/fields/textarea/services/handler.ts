@@ -21,7 +21,6 @@ import { makeSingleton, Translate } from '@singletons';
 import { AddonModDataFieldTextHandlerService } from '../../text/services/handler';
 import { AddonModDataFieldTextareaComponent } from '../component/textarea';
 import { CoreFileEntry } from '@services/file-helper';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Handler for textarea data field plugin.
@@ -35,7 +34,7 @@ export class AddonModDataFieldTextareaHandlerService extends AddonModDataFieldTe
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModDataFieldPluginBaseComponent> {
+    getComponent(): Type<unknown>{
         return AddonModDataFieldTextareaComponent;
     }
 

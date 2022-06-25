@@ -22,7 +22,6 @@ import { Injectable, Type } from '@angular/core';
 import { CoreFormFields } from '@singletons/form';
 import { makeSingleton, Translate } from '@singletons';
 import { AddonModDataFieldCheckboxComponent } from '../component/checkbox';
-import type { AddonModDataFieldPluginBaseComponent } from '@addons/mod/data/classes/base-field-plugin-component';
 
 /**
  * Handler for checkbox data field plugin.
@@ -36,7 +35,7 @@ export class AddonModDataFieldCheckboxHandlerService implements AddonModDataFiel
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModDataFieldPluginBaseComponent> {
+    getComponent(): Type<unknown> {
         return AddonModDataFieldCheckboxComponent;
     }
 

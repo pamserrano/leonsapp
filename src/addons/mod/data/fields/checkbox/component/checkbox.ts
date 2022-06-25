@@ -14,7 +14,7 @@
 
 import { AddonModDataEntryField } from '@addons/mod/data/services/data';
 import { Component } from '@angular/core';
-import { AddonModDataFieldPluginBaseComponent } from '../../../classes/base-field-plugin-component';
+import { AddonModDataFieldPluginComponent } from '../../../classes/field-plugin-component';
 
 /**
  * Component to render data checkbox field.
@@ -23,7 +23,7 @@ import { AddonModDataFieldPluginBaseComponent } from '../../../classes/base-fiel
     selector: 'addon-mod-data-field-checkbox',
     templateUrl: 'addon-mod-data-field-checkbox.html',
 })
-export class AddonModDataFieldCheckboxComponent extends AddonModDataFieldPluginBaseComponent {
+export class AddonModDataFieldCheckboxComponent extends AddonModDataFieldPluginComponent {
 
     options: {
         key: string;

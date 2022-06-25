@@ -79,7 +79,7 @@ export class AddonBlockRecentlyAccessedCoursesComponent extends CoreBlockBaseCom
     /**
      * @inheritdoc
      */
-    async invalidateContent(): Promise<void> {
+    protected async invalidateContent(): Promise<void> {
         const courseIds = this.courses.map((course) => course.id);
 
         await this.invalidateCourses(courseIds);

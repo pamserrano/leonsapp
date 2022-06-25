@@ -18,7 +18,6 @@ import { AddonModAssignPlugin } from '@addons/mod/assign/services/assign';
 import { AddonModAssignDefaultSubmissionHandler } from '@addons/mod/assign/services/handlers/default-submission';
 import { Translate } from '@singletons';
 import { CoreSitePluginsAssignSubmissionComponent } from '../../components/assign-submission/assign-submission';
-import type { AddonModAssignSubmissionPluginBaseComponent } from '@addons/mod/assign/classes/base-submission-plugin-component';
 
 /**
  * Handler to display an assign submission site plugin.
@@ -32,7 +31,7 @@ export class CoreSitePluginsAssignSubmissionHandler extends AddonModAssignDefaul
     /**
      * @inheritdoc
      */
-    getComponent(): Type<AddonModAssignSubmissionPluginBaseComponent> {
+    getComponent(): Type<unknown> {
         return CoreSitePluginsAssignSubmissionComponent;
     }
 

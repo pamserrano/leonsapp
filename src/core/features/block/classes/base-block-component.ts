@@ -105,7 +105,7 @@ export abstract class CoreBlockBaseComponent implements OnInit {
      *
      * @return Resolved when done.
      */
-    async invalidateContent(): Promise<void> {
+    protected async invalidateContent(): Promise<void> {
         return;
     }
 

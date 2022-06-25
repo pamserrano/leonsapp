@@ -24,7 +24,6 @@ import {
 import { AddonModAssignHelper, AddonModAssignPluginConfig } from '../../services/assign-helper';
 import { AddonModAssignSubmissionDelegate } from '../../services/submission-delegate';
 import { CoreFileEntry } from '@services/file-helper';
-import type { AddonModAssignSubmissionPluginBaseComponent } from '@addons/mod/assign/classes/base-submission-plugin-component';
 
 /**
  * Component that displays an assignment submission plugin.
@@ -35,7 +34,7 @@ import type { AddonModAssignSubmissionPluginBaseComponent } from '@addons/mod/as
 })
 export class AddonModAssignSubmissionPluginComponent implements OnInit {
 
-    @ViewChild(CoreDynamicComponent) dynamicComponent!: CoreDynamicComponent<AddonModAssignSubmissionPluginBaseComponent>;
+    @ViewChild(CoreDynamicComponent) dynamicComponent!: CoreDynamicComponent;
 
     @Input() assign!: AddonModAssignAssign; // The assignment.
     @Input() submission!: AddonModAssignSubmission; // The submission.
@@ -43,7 +42,7 @@ export class AddonModAssignSubmissionPluginComponent implements OnInit {
     @Input() edit = false; // Whether the user is editing.
     @Input() allowOffline = false; // Whether to allow offline.
 
-    pluginComponent?: Type<AddonModAssignSubmissionPluginBaseComponent>; // Component to render the plugin.
+    pluginComponent?: Type<unknown>; // Component to render the plugin.
     data?: AddonModAssignSubmissionPluginData; // Data to pass to the component.
 
     // Data to render the plugin if it isn't supported.
@@ -100,7 +99,7 @@ export class AddonModAssignSubmissionPluginComponent implements OnInit {
      * @return Promise resolved when done.
      */
     async invalidate(): Promise<void> {
-        await this.dynamicComponent.callComponentMethod('invalidate');
+        await this.dynamicComponent.callComponentFunction('invalidate', []);
     }
 
 }

@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { IAddonModAssignFeedbackPluginComponent } from '@addons/mod/assign/classes/base-feedback-plugin-component';
 import { Component, Input, OnInit, ViewChild, Type } from '@angular/core';
 import { CoreDynamicComponent } from '@components/dynamic-component/dynamic-component';
 import { CoreWSFile } from '@services/ws';
@@ -35,7 +34,7 @@ import { AddonModAssignFeedbackDelegate } from '../../services/feedback-delegate
 })
 export class AddonModAssignFeedbackPluginComponent implements OnInit {
 
-    @ViewChild(CoreDynamicComponent) dynamicComponent!: CoreDynamicComponent<IAddonModAssignFeedbackPluginComponent>;
+    @ViewChild(CoreDynamicComponent) dynamicComponent!: CoreDynamicComponent;
 
     @Input() assign!: AddonModAssignAssign; // The assignment.
     @Input() submission!: AddonModAssignSubmission; // The submission.
@@ -44,7 +43,7 @@ export class AddonModAssignFeedbackPluginComponent implements OnInit {
     @Input() canEdit = false; // Whether the user can edit.
     @Input() edit = false; // Whether the user is editing.
 
-    pluginComponent?: Type<IAddonModAssignFeedbackPluginComponent>; // Component to render the plugin.
+    pluginComponent?: Type<unknown>; // Component to render the plugin.
     data?: AddonModAssignFeedbackPluginData; // Data to pass to the component.
 
     // Data to render the plugin if it isn't supported.
@@ -102,7 +101,7 @@ export class AddonModAssignFeedbackPluginComponent implements OnInit {
      * @return Promise resolved when done.
      */
     async invalidate(): Promise<void> {
-        await this.dynamicComponent.callComponentMethod('invalidate');
+        await this.dynamicComponent.callComponentFunction('invalidate', []);
     }
 
 }

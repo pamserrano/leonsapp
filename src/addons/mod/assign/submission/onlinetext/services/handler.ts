@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import type { AddonModAssignSubmissionPluginBaseComponent } from '@addons/mod/assign/classes/base-submission-plugin-component';
 import {
     AddonModAssignAssign,
     AddonModAssignSubmission,
@@ -107,7 +106,7 @@ export class AddonModAssignSubmissionOnlineTextHandlerService implements AddonMo
      *
      * @return The component (or promise resolved with component) to use, undefined if not found.
      */
-    getComponent(): Type<AddonModAssignSubmissionPluginBaseComponent> {
+    getComponent(): Type<unknown> {
         return AddonModAssignSubmissionOnlineTextComponent;
     }
 

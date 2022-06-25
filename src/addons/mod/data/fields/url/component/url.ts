@@ -13,7 +13,7 @@
 // limitations under the License.
 import { AddonModDataEntryField } from '@addons/mod/data/services/data';
 import { Component } from '@angular/core';
-import { AddonModDataFieldPluginBaseComponent } from '../../../classes/base-field-plugin-component';
+import { AddonModDataFieldPluginComponent } from '../../../classes/field-plugin-component';
 
 /**
  * Component to render data url field.
@@ -22,7 +22,7 @@ import { AddonModDataFieldPluginBaseComponent } from '../../../classes/base-fiel
     selector: 'addon-mod-data-field-url',
     templateUrl: 'addon-mod-data-field-url.html',
 })
-export class AddonModDataFieldUrlComponent extends AddonModDataFieldPluginBaseComponent {
+export class AddonModDataFieldUrlComponent extends AddonModDataFieldPluginComponent {
 
     autoLink = false;
     displayValue = '';

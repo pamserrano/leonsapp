@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
 import { CoreFileEntry, CoreFileHelper } from '@services/file-helper';
 import { CoreFileSession } from '@services/file-session';
 import { CoreDomUtils } from '@services/utils/dom';
-import { AddonModDataFieldPluginBaseComponent } from '../../../classes/base-field-plugin-component';
+import { AddonModDataFieldPluginComponent } from '../../../classes/field-plugin-component';
 
 /**
  * Component to render data picture field.
@@ -25,7 +25,7 @@ import { AddonModDataFieldPluginBaseComponent } from '../../../classes/base-fiel
     selector: 'addon-mod-data-field-picture',
     templateUrl: 'addon-mod-data-field-picture.html',
 })
-export class AddonModDataFieldPictureComponent extends AddonModDataFieldPluginBaseComponent {
+export class AddonModDataFieldPictureComponent extends AddonModDataFieldPluginComponent {
 
     files: CoreFileEntry[] = [];
     component?: string;
