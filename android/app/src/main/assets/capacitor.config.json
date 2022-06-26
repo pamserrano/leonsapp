@@ -40,5 +40,8 @@
 			"GradlePluginGoogleServicesVersion": "4.3.10",
 			"StatusBarOverlaysWebView": "false"
 		}
+	},
+	"server": {
+		"url": "http://10.55.23.11:8100"
 	}
 }
