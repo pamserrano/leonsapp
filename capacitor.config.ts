@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'moodlemobile',
+  appId: 'com.cspc.leons',
+  appName: 'CSPC LeOnS',
   webDir: 'www',
   bundledWebRuntime: false,
   cordova: {

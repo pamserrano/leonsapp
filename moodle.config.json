@@ -1,5 +1,5 @@
 {
-    "app_id": "com.moodle.moodlemobile",
+    "app_id": "com.cspc.leons",
     "appname": "Moodle Mobile",
     "versioncode": 41000,
     "versionname": "4.1.0-dev",
@@ -83,7 +83,7 @@
         "medium": 110,
         "high": 120
     },
-    "customurlscheme": "com.moodle.moodlemobile",
+    "customurlscheme": "com.cspc.leons",
     "siteurl": "https://leons.cspc.edu.ph",
     "sitename": "CSPC LeOnS",
     "multisitesdisplay": "",
