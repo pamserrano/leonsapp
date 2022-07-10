@@ -99,7 +99,7 @@
     "forceLoginLogo": false,
     "ioswebviewscheme": "moodleappfs",
     "appstores": {
-        "android": "com.moodle.moodlemobile",
+        "android": "com.cspc.leons",
         "ios": "id633359593"
     },
     "wsrequestqueuelimit": 10,

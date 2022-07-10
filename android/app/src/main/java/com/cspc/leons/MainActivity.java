@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.cspc.leons;
 
 import com.getcapacitor.BridgeActivity;
 
