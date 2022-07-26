@@ -14,7 +14,6 @@
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IonRefresher } from '@ionic/angular';
-
 import { CoreDomUtils } from '@services/utils/dom';
 import { CorePushNotifications } from '@features/pushnotifications/services/pushnotifications';
 import { AddonMessageOutputAirnotifier, AddonMessageOutputAirnotifierDevice } from '../../services/airnotifier';
